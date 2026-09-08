@@ -1,10 +1,23 @@
 local sensor = script.Parent
 
 sensor.Touched:Connect(function(hit)
-	local character = hit.Parent
-	local humanoid = character:FindFirstChild("Humanoid")
 
-	if humanoid then
-		print("いらっしゃいませ！")
-	end
+    local character = hit.Parent
+    local humanoid = character:FindFirstChild("Humanoid")
+
+    if humanoid then
+
+        local player = game.Players:GetPlayerFromCharacter(character)
+
+        if player then
+            local playerGui = player:WaitForChild("PlayerGui")
+            local shopGui = playerGui:WaitForChild("ShopGui")
+
+            shopGui.Enabled = true
+
+            task.wait(3)
+
+            shopGui.Enabled = false
+        end
+    end
 end)
