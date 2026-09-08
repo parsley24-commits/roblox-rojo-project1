@@ -1,0 +1,10 @@
+local sensor = script.Parent
+
+sensor.Touched:Connect(function(hit)
+	local character = hit.Parent
+	local humanoid = character:FindFirstChild("Humanoid")
+
+	if humanoid then
+		print("いらっしゃいませ！")
+	end
+end)
